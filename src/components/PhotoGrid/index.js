@@ -1,18 +1,23 @@
 import React from 'react'
 import Photo from '../Photo'
+import {connect } from 'react-redux'
 
-class PhotoGrid extends React.Component{
-  render() {
+const mapStateToProps = state => {
+  return { posts: state.posts };
+}
+function PhotoGrids({posts}){
+
     return (
       <div className="photo-grid">
-        {this.props.posts.map((post, i) => {
+        {posts.map((post, i) => {
           return (
-            <Photo {...this.props} key={i} index={i} post={post} />
+            <Photo key={i} index={i} post={post} />
           )
         })}
       </div>
     )
   }
-}
+
+const PhotoGrid = connect(mapStateToProps)(PhotoGrids);
 
 export default PhotoGrid

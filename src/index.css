@@ -12,3 +12,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+.photo-grid {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid-figure {
+  border-radius: 10%;
+  grid-column: 1 /2;
+}

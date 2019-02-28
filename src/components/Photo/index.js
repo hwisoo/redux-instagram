@@ -8,10 +8,10 @@ class Photo extends React.Component{
 
     return (
       <figure className="grid-figure">
-        <div className="grid-photo-wrap">
-          <Link to={`/view/${post.code}`}>
+        {/* <div className="grid-photo-wrap"> */}
+          {/* <Link to={`/view/${post.code}`}>
+          </Link> */}
             <img src={post.display_src} alt={post.caption} className="grid-photo" />
-          </Link>
 
           {/* <CSSTransitionGroup
             transitionName="like"
@@ -19,27 +19,37 @@ class Photo extends React.Component{
             transitionLeaveTimeout={500}>
             <span key={post.likes} className="likes-heart">{post.likes}</span>
           </CSSTransitionGroup> */}
-        </div>
+        {/* </div> */}
 
-        <figcaption>
+          <figcaption>
           <p>{post.caption}</p>
-
+          </figcaption>
           <div className="control-buttons">
-            <button onClick={this.props.incrementLikes.bind(null, index)} className="likes">
-              &hearts; {post.likes}
-            </button>
 
-            <Link to={`/view/${post.code}`} className="button">
-              <span className="comment-count">
-                <span className="speech-bubble"></span>
-                <span> {comments[post.code] ? comments[post.code].length : 0}</span>
+         {/* onClick={post.incrementLikes.bind(null, index)}  */}
+            <button className="likes">
+              &hearts; {post.likes}
+            </button> 
+            <span className="comment-count">
+                {/* <span className="speech-bubble"></span>
+                <span> {comments[post.code] ? comments[post.code].length : 0}</span> */}
               </span>
-            </Link>
-          </div>
-        </figcaption>
-      </figure>
-    )
-  }
-}
+            </div>
+          </figure>
+                         )
+                        }
+                      }
+          
+
+            /* <Link to={`/view/${post.code}`} className="button">
+              
+            </Link> */
+
+        
+ 
+
+        
+      
+      
 
 export default Photo
