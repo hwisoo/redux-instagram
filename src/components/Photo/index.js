@@ -1,55 +1,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import CSSTransitionGroup from 'react-addons-css-transition-group'
+import {incrementLikes} from '../../actions/actionCreators'
 
-class Photo extends React.Component{
-  render() {
-    const { post, index, comments } = this.props;
+function mapDispatchToProps(dispatch) {
+  return {
+    incrementLikes: post => dispatch(incrementLikes(props.index))
+  };
+}
 
-    return (
-      <figure className="grid-figure">
-        {/* <div className="grid-photo-wrap"> */}
-          {/* <Link to={`/view/${post.code}`}>
-          </Link> */}
-            <img src={post.display_src} alt={post.caption} className="grid-photo" />
+function Photos(props) {
 
-          {/* <CSSTransitionGroup
-            transitionName="like"
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={500}>
-            <span key={post.likes} className="likes-heart">{post.likes}</span>
-          </CSSTransitionGroup> */}
-        {/* </div> */}
+  const { post, comments } = props;
 
-          <figcaption>
-          <p>{post.caption}</p>
-          </figcaption>
-          <div className="control-buttons">
+  return (
+    <figure className="grid-figure">
+      <Link to={`/view/${post.code}`}>
 
-         {/* onClick={post.incrementLikes.bind(null, index)}  */}
-            <button className="likes">
-              &hearts; {post.likes}
-            </button> 
-            <span className="comment-count">
-                {/* <span className="speech-bubble"></span>
-                <span> {comments[post.code] ? comments[post.code].length : 0}</span> */}
-              </span>
-            </div>
-          </figure>
-                         )
-                        }
-                      }
-          
+        <img src={post.display_src} alt={post.caption} className="grid-photo" />
+      </Link>
+      <figcaption>
+        <p>{post.caption}</p>
+      </figcaption>
+      <div className="control-buttons">
 
-            /* <Link to={`/view/${post.code}`} className="button">
-              
-            </Link> */
+        <button onClick="mapDispatchToProps" className="likes">
+          &hearts; {post.likes}
+        </button>
+        <span className="comment-count">
+          <span className="speech-bubble"></span>
 
-        
- 
-
-        
-      
-      
+          <span> Comments: {comments ? comments.length : 0}</span>
+        </span>
+      </div>
+    </figure>
+  )
+}
+const Photo = connect(null, mapDispatchToProps)(Photos);
 
 export default Photo

@@ -3,7 +3,7 @@ export default function posts(state = [], action) {
     return state
   }
 
-  const i = action.index
+  const i = action.post.index
 
   return [
     ...state.slice(0, i),

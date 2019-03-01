@@ -9,7 +9,8 @@ class Comments extends React.Component{
           {comment.text}
           <button
             className="remove-comment"
-            onClick={this.props.removeComment.bind(null, this.props.params.id, index)}>
+            // onClick={this.props.removeComment.bind(null, this.props.params.id, index)}
+            >
             &times;
           </button>
         </p>

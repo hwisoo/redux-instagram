@@ -49,7 +49,7 @@ const posts = [
     "display_src": `https://picsum.photos/400/400/?image=${Math.floor((Math.random() * 85))}`,
   },
   {
-    "code": "BAAJqbOQcW5",
+    "code": "BAAJqbƒOQcW5",
     "caption": "Brunchin'",
     "likes": 40,
     "id": "1152964002473690553",

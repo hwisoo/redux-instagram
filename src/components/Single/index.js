@@ -1,22 +1,33 @@
 import React from 'react'
 import Photo from '../Photo'
 import Comments from '../Comments'
+import {connect } from 'react-redux'
 
-class Single extends React.Component{
-  render() {
-    const { id } = this.props.params
-    const i = this.props.posts.findIndex((post) => post.code === id)
-    const post = this.props.posts[i]
+const mapStateToProps = state => {
+  return { posts: state.posts, 
+          comments: state.comments
+  };
+}
 
-    const comments = this.props.comments[id] || []
+function Singles (props){
+
+
+  
+    const id  = props.match.params.code;
+    const currentPost = props.posts.filter(post => (post.code === id));
+    
+    const currentComments = props.comments[id] || []
 
     return (
       <div className="single-photo">
-        <Photo {...this.props} key={i} index={i} post={post} />
-        <Comments {...this.props} comments={comments} />
+      <p>I called</p>
+        <Photo post={currentPost[0]} />
+        <Comments comments={currentComments} />
       </div>
     )
   }
-}
 
-export default Single
+
+const Single = connect(mapStateToProps)(Singles);
+
+export default Single;
